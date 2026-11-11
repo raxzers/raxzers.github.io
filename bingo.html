@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control de Bingo</title>
+  <link rel="stylesheet" href="styles_bingo.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Control de Bingo</h1>
+  </header>
+
+  <main class="layout">
+    <!-- Bolitas -->
+    <section class="panel" aria-labelledby="t-bola">
+      <h2 id="t-bola">Bolita</h2>
+      <div class="row">
+        <input type="text" id="ballInput" inputmode="numeric" maxlength="2" placeholder="1 - 75" autocomplete="off" aria-label="Número de la bolita">
+        <button id="ballBtn" class="primary">Marcar</button>
+        <button id="undoBtn" class="secondary">Deshacer última</button>
+        <button id="resetBtn" class="danger">Reiniciar números</button>
+      </div>
+      <p id="ballMsg" class="msg" aria-live="polite"></p>
+      <div id="board" class="board" aria-label="Tablero de números"></div>
+    </section>
+
+    <!-- Condiciones -->
+    <section class="panel" aria-labelledby="t-cond">
+      <h2 id="t-cond">Condiciones de victoria</h2>
+      <p class="hint">Desmarca las que ya se jugaron para dejar de verificarlas.</p>
+      <div id="conds" class="conds"></div>
+      <div id="alerts" aria-live="assertive"></div>
+      <h3>Ganadores</h3>
+      <ul id="winnersLog" class="log"></ul>
+    </section>
+
+    <!-- Registro de cartones -->
+    <section class="panel" aria-labelledby="t-reg">
+      <h2 id="t-reg">Registrar cartón</h2>
+      <div id="cardForm" class="grid5 form-grid"></div>
+      <div class="row">
+        <button id="addCardBtn" class="primary">Agregar cartón</button>
+        <button id="clearFormBtn" class="secondary">Limpiar</button>
+      </div>
+      <p id="formMsg" class="msg" aria-live="polite"></p>
+      <p class="hint">Se digita por filas, de izquierda a derecha. Al escribir el número se pasa a la siguiente casilla; Enter también avanza.</p>
+    </section>
+
+    <!-- Cartones -->
+    <section class="panel wide" aria-labelledby="t-cartones">
+      <div class="row between">
+        <h2 id="t-cartones">Cartones registrados (<span id="cardCount">0</span>)</h2>
+        <button id="clearCardsBtn" class="danger">Borrar todos los cartones</button>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+  </main>
+
+  <script src="app_bingo.js"></script>
+</body>
+</html>
